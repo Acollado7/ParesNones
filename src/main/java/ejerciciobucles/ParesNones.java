@@ -36,8 +36,9 @@ public class ParesNones {
 
         Scanner teclado = new Scanner(System.in);
         Random random = new Random();
-        int opcion,numeroJugador1,numeroJugador2;
+        int opcion,numeroJugador1,numeroJugador2,sumaNumeros;
         String paresNones;
+        boolean par; 
         do {
             System.out.println("Opciones posibles ");
             System.out.println("1.Jugar contra una persona");
@@ -52,10 +53,13 @@ public class ParesNones {
              case 1:
                 System.out.println("1.Jugar contra una persona");
                 do {
-                    System.out.println("¿Pares o Nones?");
+                    System.out.println("¿PARES o NONES?");
                     teclado.nextLine();
                     paresNones = teclado.nextLine();
-                }while(!paresNones.equalsIgnoreCase("pares")&& paresNones.equalsIgnoreCase("nones")); //paresNones.equals("Pares")
+                }while(!(paresNones.equalsIgnoreCase("pares") || paresNones.equalsIgnoreCase("nones"))) ; //paresNones.equals("Pares")
+                
+                if(paresNones.equalsIgnoreCase("pares")) par=true;
+                else par=false;
                 
                 do {
                  System.out.println("Mete un numero entre 1 y 10");
@@ -67,27 +71,59 @@ public class ParesNones {
                  numeroJugador2 = teclado.nextInt();
                 }while(numeroJugador2<0 || numeroJugador2>10);
                 
-                int sumaNumeros= numeroJugador1 + numeroJugador2;
+                 sumaNumeros= numeroJugador1 + numeroJugador2;
                 
                  
                         
-                if (numeroJugador2 % 2 == 0){ 
+                if (sumaNumeros % 2 == 0){ 
                     
-                    System.out.println("El número es par");
+                    if(par) System.out.println("Jugador 1 ha ganado");
+                    else System.out.println("Jugador 2 ha ganado");
                 }
                 else{
-                    System.out.println("El número es impar");
+                    if(par) System.out.println("Jugador 2 ha ganado");
+                    else System.out.println("Jugador 1 ha ganado");
                 }    
+                 
                
                 break;
 
              case 2:
                 System.out.println("2.Jugar contra la máquina");
+               
+                do {
+                    System.out.println("¿PARES o NONES?");
+                    teclado.nextLine();
+                    paresNones = teclado.nextLine();
+                }while(!(paresNones.equalsIgnoreCase("pares") || paresNones.equalsIgnoreCase("nones"))) ; //paresNones.equals("Pares")
                 
+                if(paresNones.equalsIgnoreCase("pares")) par=true;
+                else par=false;
+                
+                do {
+                 System.out.println("Mete un numero entre 1 y 10");
+                 numeroJugador1 = teclado.nextInt();
+                }while(numeroJugador1<0 || numeroJugador1>10);
+                
+                numeroJugador2=random.nextInt(10)+1;
+                
+                 sumaNumeros= numeroJugador1 + numeroJugador2;
+                
+                 
+                        
+                if (sumaNumeros % 2 == 0){ 
+                    
+                    if(par) System.out.println("Jugador 1 ha ganado");
+                    else System.out.println("Jugador 2 ha ganado");
+                }
+                else{
+                    if(par) System.out.println("Jugador 2 ha ganado");
+                    else System.out.println("Jugador 1 ha ganado");
+                }  
                 break;
         
              case 3:
-                System.out.println("3.Finalizar programa");
+                System.out.println("Programa finalizado");
                 break;
              default:
                  System.out.println("Mete otro número");
