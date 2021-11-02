@@ -37,7 +37,7 @@ public class ParesNones {
         Scanner teclado = new Scanner(System.in);
         Random random = new Random();
         int opcion,numeroJugador1,numeroJugador2;
-
+        String paresNones;
         do {
             System.out.println("Opciones posibles ");
             System.out.println("1.Jugar contra una persona");
@@ -52,16 +52,24 @@ public class ParesNones {
              case 1:
                 System.out.println("1.Jugar contra una persona");
                 do {
+                    System.out.println("¿Pares o Nones?");
+                    teclado.nextLine();
+                    paresNones = teclado.nextLine();
+                }while(!paresNones.equalsIgnoreCase("pares")&& paresNones.equalsIgnoreCase("nones")); //paresNones.equals("Pares")
+                
+                do {
                  System.out.println("Mete un numero entre 1 y 10");
                  numeroJugador1 = teclado.nextInt();
                 }while(numeroJugador1<0 || numeroJugador1>10);
+                
                 do {
                  System.out.println("Mete un numero entre 1 y 10");
                  numeroJugador2 = teclado.nextInt();
                 }while(numeroJugador2<0 || numeroJugador2>10);
+                
                 int sumaNumeros= numeroJugador1 + numeroJugador2;
                 
-                
+                 
                         
                 if (numeroJugador2 % 2 == 0){ 
                     
