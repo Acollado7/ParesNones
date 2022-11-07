@@ -17,7 +17,7 @@ public class ParesNones {
         int MINIMO_DEDOS = 0;
 
         //Incializo Scanner
-        Scanner entry = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         Random random = new Random();
 
         //Variables
@@ -36,7 +36,7 @@ public class ParesNones {
             System.out.println("2. Juega contra la maquina");
             System.out.println("usa SALIR para terminar el programa");
 
-            opcion = entry.nextLine();
+            opcion = sc.nextLine();
             opcion = opcion.toUpperCase();
 
             switch(opcion){
@@ -49,7 +49,7 @@ public class ParesNones {
                         //El bucle comprueba si el dato introducido es PARES O NONES
                         System.out.println("Elgige PARES o NONES,");
                         System.out.println("JUGARDOR 1:");
-                        paresNonesJ1= entry.nextLine();
+                        paresNonesJ1= sc.nextLine();
                         paresNonesJ1 = paresNonesJ1.toUpperCase();
 
                         if(!(paresNonesJ1.equalsIgnoreCase("PARES")
@@ -75,7 +75,7 @@ public class ParesNones {
                         //Es decir tiene que tener 10 o 1 dedo
                         System.out.println("Elige numero de dedos JUGADOR 1:");
 
-                        dedosJugador1 = entry.nextInt();
+                        dedosJugador1 = sc.nextInt();
                         if(dedosJugador1>MAXIMOS_DEDOS){
                             System.out.println("El numero de dedos no puede ser mayor que 10");
                         } else if (dedosJugador1<MINIMO_DEDOS){
@@ -89,7 +89,7 @@ public class ParesNones {
                         //Es decir tiene que tener 10 o 1 dedo
                         System.out.println("Elige numero de dedos JUGADOR 2:");
 
-                        dedosJugador2 = entry.nextInt();
+                        dedosJugador2 = sc.nextInt();
                         if(dedosJugador2>MAXIMOS_DEDOS){
                             System.out.println("El numero de dedos no puede ser mayor que 10");
                         } else if (dedosJugador2<MINIMO_DEDOS){
@@ -104,10 +104,11 @@ public class ParesNones {
                     System.out.println("HAS DECIDIDO JUGAR CONTRA LA MAQUINA");
                     System.out.println("-----------------------------");
 
-                    do{//El bucle comprueba si el dato introducido es PARES O NONES
+                    do{
+                        //El bucle comprueba si el dato introducido es PARES O NONES
                         System.out.println("Elgige PARES o NONES,");
                         System.out.println("JUGARDOR 1:");
-                        paresNonesJ1= entry.nextLine();
+                        paresNonesJ1= sc.nextLine();
                         paresNonesJ1 = paresNonesJ1.toUpperCase();
 
                         if(!(paresNonesJ1.equals("PARES") || paresNonesJ1.equals("NONES"))){
@@ -126,11 +127,12 @@ public class ParesNones {
                     System.out.println("Es decir JUGADOR 1 ["+ paresNonesJ1 +"] y JUGADOR 2 ["+ paresNonesJ2 +"]");
                     System.out.println("--------------------------------------------------------------------------");
 
-                    do{//El bucle comprueba si el numero introducido de dedos del jugador 1 es un numero logico
+                    do{
+                        //El bucle comprueba si el numero introducido de dedos del jugador 1 es un numero logico
                         //Es decir tiene que tener 10 o 1 dedo
                         System.out.println("Elige numero de dedos JUGADOR 1:");
 
-                        dedosJugador1 = entry.nextInt();
+                        dedosJugador1 = sc.nextInt();
                         if(dedosJugador1>10){
                             System.out.println("El numero de dedos no puede ser mayor que 10");
                         } else if (dedosJugador1<0){
@@ -184,7 +186,7 @@ public class ParesNones {
                     System.out.println("GANA " + ganador + "!!!\n\n");
                 }
 
-                entry.nextLine();
+                sc.nextLine();
                 //Limpio el buffer para evitar el salto de linea
             }
 
